@@ -16,26 +16,45 @@ _paginate: false
 
 # Intro, reason & background
 
-Who changed what when.
+Who changed what when (and why?).
 
 * createdBy/changedBy
 * createdAt/changedAt
+* (comment?)
 * diff
 
+---
+
+# Intro, reason & background (contd.)
+
+How?
 
 * app level
-* database level
+* lib level
+* database table/row level
+* database system/log/file level
 
-<!--
-Some intro.
-Then some reason and background.
--->
+---
+
+# Who
+
+```
+@Context
+SecurityContext securityContext;
+...
+
+private String getPrincipal() {
+    return (securityContext != null && securityContext.getUserPrincipal() != null) ? securityContext.getUserPrincipal().getName() : "anonymous";
+  }
+```
 
 ---
 
 # What
 
-* JPA Entities
+* JPA Entity fields
+  * `Object[] old, Object[] new`
+  * `ROW(OLD.*), ROW(NEW.*)`
 
 ---
 
@@ -44,11 +63,22 @@ Then some reason and background.
 * Application code
 * JPA Listener
 * Hibernate Interceptor
+* Database (triger)
 * Database (CDC, Debezium)
 
 ---
 
 # Demo
+
+---
+
+# Links
+
+* https://vladmihalcea.com/how-to-audit-entity-modifications-using-the-jpa-entitylisteners-embedded-and-embeddable-annotations/
+* https://vladmihalcea.com/the-best-way-to-implement-an-audit-log-using-hibernate-envers/
+* https://vladmihalcea.com/a-beginners-guide-to-cdc-change-data-capture/
+* https://wiki.postgresql.org/wiki/Audit_trigger
+* https://vladmihalcea.com/mysql-audit-logging-triggers/
 
 ---
 
