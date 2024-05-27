@@ -63,7 +63,7 @@ private String getPrincipal() {
 * Application code
 * JPA Listener
 * Hibernate Interceptor
-* Database (triger)
+* Database (trigger)
 * Database (CDC, Debezium)
 
 ---
