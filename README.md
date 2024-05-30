@@ -79,6 +79,7 @@ private String getPrincipal() {
 * https://vladmihalcea.com/a-beginners-guide-to-cdc-change-data-capture/
 * https://wiki.postgresql.org/wiki/Audit_trigger
 * https://vladmihalcea.com/mysql-audit-logging-triggers/
+* https://vladmihalcea.com/how-to-emulate-createdby-and-lastmodifiedby-from-spring-data-using-the-generatortype-hibernate-annotation/
 
 ---
 
