@@ -2,14 +2,15 @@ package me.abratuhi.demo.audit.repository;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.envers.Audited;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-@Table(name = "posts")
+@Table(name = "post")
 @Entity
 @EntityListeners(value = {AuditListener.class})
 public class Post extends AuditableEntity {
-  @Column private String text;
+  @Audited @Column private String text;
 }
