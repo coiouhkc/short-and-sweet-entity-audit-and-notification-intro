@@ -1,15 +1,16 @@
 package me.abratuhi.demo.audit.repository;
 
+import jakarta.enterprise.context.Dependent;
+import jakarta.inject.Inject;
 import jakarta.persistence.*;
-import jakarta.ws.rs.core.Context;
-import jakarta.ws.rs.core.SecurityContext;
-import lombok.extern.jbosslog.JBossLog;
-
 import java.time.OffsetDateTime;
+import lombok.extern.jbosslog.JBossLog;
+import me.abratuhi.demo.audit.controller.AuthContext;
 
+@Dependent
 @JBossLog
 public class AuditListener {
-  @Context SecurityContext securityContext;
+  @Inject AuthContext authContext;
 
   @PrePersist
   public void onPrePersist(Object o) {
@@ -59,6 +60,6 @@ public class AuditListener {
   }
 
   private String getPrincipal() {
-    return (securityContext != null && securityContext.getUserPrincipal() != null) ? securityContext.getUserPrincipal().getName() : "anonymous";
+    return authContext.getPrincipal();
   }
 }
